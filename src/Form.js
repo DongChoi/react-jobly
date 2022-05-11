@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-
+import "./Form.css";
 /** prop: search function
  *  state: form data
  */
@@ -19,7 +18,7 @@ function Form({ search }) {
   }
 
   return (
-    <div>
+    <div id="form-box">
       <form onSubmit={handleSubmit}>
         <input
           id="searchQuery"
@@ -30,7 +29,10 @@ function Form({ search }) {
           value={formData}
           aria-label="Title"
         />
-        <button className="btn-primary rig btn btn-sm searchForm-searchBtn">
+        <button
+          id="search-button"
+          className="btn-primary rig btn btn-sm searchForm-searchBtn"
+        >
           Search
         </button>
       </form>

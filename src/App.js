@@ -17,7 +17,7 @@ function App() {
         if (token) {
           localStorage.setItem("token", token);
           let user = await getCurrUserFromToken(token);
-          console.log("curr usser state:", user)
+          console.log("curr usser state:", user);
           setcurrUser(user);
         } else {
           localStorage.removeItem("token");
@@ -46,13 +46,14 @@ function App() {
   async function updateUser(formData, username) {
     const resp = await JoblyApi.updateUser(formData, username);
     setcurrUser(resp);
+    console.log("CURRENT USER AFTER UPDATE", currUser);
   }
 
   //calls api to get current user from token from backend
   async function getCurrUserFromToken(token) {
     let user = jwt_decode(token);
     JoblyApi.token = token;
-    console.log("user",user);
+    console.log("user", user);
     const currUser = await JoblyApi.getCurrUser(user.username);
     if (!currUser.applications) {
       currUser.applications = [];
@@ -63,11 +64,11 @@ function App() {
   async function applyJobs(jobId) {
     const resp = await JoblyApi.applyToJob(currUser.username, jobId);
     //currUser = {user:{firstname, applications:[]}}
-    setcurrUser(user => ({
-        ...user,
-        applications: [...user.applications, Number(jobId)]
-    }))
-    console.log("type of ", currUser.applications)
+    setcurrUser((user) => ({
+      ...user,
+      applications: [...user.applications, Number(jobId)],
+    }));
+    console.log("type of ", currUser.applications);
     // return resp;
   }
 
@@ -78,11 +79,13 @@ function App() {
     return false;
   }
 
-
-
-
   if (isLoading) {
-    return <div className="spinner-border" style={{ width: "3em", height: "3em" }}></div>;
+    return (
+      <div
+        className="spinner-border"
+        style={{ width: "3em", height: "3em" }}
+      ></div>
+    );
   }
 
   //logs out user
@@ -92,7 +95,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="bgimage">
       <UserContext.Provider value={{ currUser, hasAppliedtoJob }}>
         <BrowserRouter>
           <NavBar logOutUser={logOutUser} />

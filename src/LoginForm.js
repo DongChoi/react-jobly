@@ -40,7 +40,7 @@ function LoginForm({ login }) {
           <input
             id={`login-${field}`}
             name={field}
-            type={field==="password" ? "password" : "text"}
+            type={field === "password" ? "password" : "text"}
             className="form-control"
             placeholder={field}
             onChange={handleChange}
@@ -54,8 +54,10 @@ function LoginForm({ login }) {
   return (
     <div className="loginContainer">
       <h2>Login</h2>
-      <form className="loginForm card align-self-center" onSubmit={handleSubmit}>
-        
+      <form
+        className="loginForm card align-self-center"
+        onSubmit={handleSubmit}
+      >
         {renderForm()}
 
         <button className="btn-primary rig btn btn-lrg loginForm-Btn">

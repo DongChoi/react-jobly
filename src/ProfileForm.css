@@ -1,0 +1,25 @@
+
+
+
+
+button.btn-primary.rig.btn.btn-sm.ProfileForm-Btn {
+    margin-top: 2%;
+}
+
+
+
+.ProfileForm-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    max-width: 50%;
+    left: 25%;
+    margin: 2% 0%;
+    align-items: stretch;
+    margin-top: 5%;
+}

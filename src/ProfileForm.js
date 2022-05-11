@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "./userContext";
-
+import "./ProfileForm.css";
 /**
  *  Prop: updateUser function
  *  State: form data, and error messages
@@ -8,7 +8,7 @@ import UserContext from "./userContext";
  */
 function ProfileForm({ updateUser }) {
   const { currUser } = useContext(UserContext);
-  console.log("what is curruser", currUser)
+  console.log("what is curruser", currUser);
   const [errorMsg, setErrorMsg] = useState([]);
   const initialFormData = {
     userData: {
@@ -17,7 +17,7 @@ function ProfileForm({ updateUser }) {
       lastName: currUser.lastName,
       email: currUser.email,
     },
-    isUpdated: false
+    isUpdated: false,
   };
   const [formData, setFormData] = useState(initialFormData);
 
@@ -34,6 +34,7 @@ function ProfileForm({ updateUser }) {
   /** Call parent function to update.*/
   async function handleSubmit(evt) {
     evt.preventDefault();
+    console.log("CURRUSER BEFORE UPDATE", currUser);
     let userData = { ...formData.userData };
     delete userData.username;
 
@@ -42,7 +43,6 @@ function ProfileForm({ updateUser }) {
       setFormData((fData) => ({
         userData: { ...fData.userData },
         isUpdated: true,
-
       }));
     } catch (error) {
       setErrorMsg(error);
@@ -71,7 +71,7 @@ function ProfileForm({ updateUser }) {
 
   return (
     <div>
-      <form className="ProfileForm" onSubmit={handleSubmit}>
+      <form className="ProfileForm-card" onSubmit={handleSubmit}>
         {renderForm()}
 
         <button className="btn-primary rig btn btn-sm ProfileForm-Btn">

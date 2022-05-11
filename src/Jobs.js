@@ -4,12 +4,8 @@ import JobCard from "./JobCard";
 import Form from "./Form";
 import UserContext from "./userContext";
 
-
 //make api call -> update curruser.applications -> listen for changes to curruser
 // everytime curruser changes rerender that component
-
-
-
 
 /** state: an array of job objects
  *  fetches jobs from the api upon render
@@ -37,20 +33,21 @@ function Jobs({ applyJobs }) {
     getJobs();
   }, [searchQuery]);
 
-
   if (jobs.isLoading) {
-    return <div className="spinner-border" style={{ width: "3em", height: "3em" }}></div>;
+    return (
+      <div
+        className="spinner-border"
+        style={{ width: "3em", height: "3em" }}
+      ></div>
+    );
   }
-
-
-
 
   function search(searchJobs) {
     setSearchQuery(searchJobs);
   }
 
   async function handleApply(evt) {
-    await applyJobs(evt.target.value)
+    await applyJobs(evt.target.value);
   }
 
   return (

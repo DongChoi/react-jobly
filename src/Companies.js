@@ -28,14 +28,19 @@ function Companies() {
   }, [searchQuery]);
 
   if (companies.isLoading) {
-    return <div className="spinner-border" style={{width:"3em", height: "3em"}}></div>;
+    return (
+      <div
+        className="spinner-border"
+        style={{ width: "3em", height: "3em" }}
+      ></div>
+    );
   }
 
   function search(searchCompanies) {
     setSearchQuery(searchCompanies);
   }
   return (
-    <div>
+    <div id="companies-box">
       <Form search={search} />
       {companies.companyData.length === 0 ? (
         <h4>No Companies Found</h4>

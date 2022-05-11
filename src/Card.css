@@ -1,0 +1,42 @@
+.card a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.card img {
+    position: absolute;
+    right: 9px;
+    top: 3px;
+    width: 100px;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    max-width: 50%;
+    left: 25%;
+    margin: 2% 0%;
+}
+
+button.apply.btn.btn-danger {
+    width: fit-content;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    margin: 0% 1% 1% 0%;
+  }
+
+.card>h2, h4, p {
+    margin: 1% 2%;
+}
+
+p.company-description {
+    margin: 1% -1%;
+}

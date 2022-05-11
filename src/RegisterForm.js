@@ -43,7 +43,7 @@ function RegisterForm({ register }) {
           <input
             id={`Register-${field}`}
             name={field}
-            type={field==="password" ? "password" : "text"}
+            type={field === "password" ? "password" : "text"}
             className="form-control"
             placeholder={field}
             onChange={handleChange}
@@ -58,7 +58,10 @@ function RegisterForm({ register }) {
   return (
     <div className="registerContainer">
       <h2>Sign Up</h2>
-      <form className="RegisterForm card align-self-center" onSubmit={handleSubmit}>
+      <form
+        className="RegisterForm card align-self-center"
+        onSubmit={handleSubmit}
+      >
         {renderForm()}
 
         <button className="btn-primary rig btn btn-lrg registerForm-Btn">
